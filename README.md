@@ -2,7 +2,7 @@
 
 ### Project Overview
 
-project hii inachambua jinsi 'Hali ya Hewa' inavyoathiri 'Solar Power Output' Mwanza, Tanzania.
+Project hii inachambua jinsi 'Hali ya Hewa' inavyoathiri 'Solar Power Output' Mwanza, Tanzania.
 Lengo: Kubadilisha data ghafi kuwa 'maamuzi ya kibiashara' kwa kutumia python
 
 ### Key Findings
@@ -12,7 +12,7 @@ Lengo: Kubadilisha data ghafi kuwa 'maamuzi ya kibiashara' kwa kutumia python
 - Graph inatumia mfumo wa rangi: Dhahabu = Jua, Kijivu = Mawingu, Bluu = Mvua
 
 ### Tech stack
-- python: pandas, matplotlib scikit-learn
+- python: pandas, matplotlib, scikit-learn
 - Data Analysis + Weather API
 - Solar Output Modeling
 
