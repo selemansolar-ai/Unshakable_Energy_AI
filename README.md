@@ -25,6 +25,30 @@ Lengo: Kubadilisha data ghafi kuwa 'maamuzi ya kibiashara' kwa kutumia python
 
  ### Author
  Seleman Maganga Michael- Solar Energy+AI Enthusiast
+
+ 
  Mwanza, Tanzania
 
  #Solar Energy #Data Science #Python #RenewableEnergy #AI #Tanzania
+
+## ## UNSHAKABLE ENERGY AI MACHINE LEARNING
+AI model for predicting solar power output in Mwanza , Tanzania ,using weayher data.
+
+## Problem
+Solar power fluctualates due to clouds, heat, and light. This  causes unstable energy for homes.
+
+## Solution
+Machime learning model that forecasts 'Power_W' using 'saa, joto, mwangaza, mawingu'
+## Tech stack
+-Python, pandas,scikit-Learn,Linear Regression,Random Forecast'
+
+## Roadmap
+- [x] week 1: Data cleaning and Analysis
+- [ ] week 2: Train/Test split and first model
+- [ ] week 3: Model Evaluation
+- [ ] week 4: Deployment
+
+## Dataset
+Real solar data collected in Mwanza Tanzania.
+
+Bult as part Block 6: 1% Daily.
