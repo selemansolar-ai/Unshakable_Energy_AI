@@ -1,0 +1,80 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMLlzMH20Qr+PCh4jz12w9F",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/selemansolar-ai/Unshakable_Energy_AI/blob/main/solar_data.csv\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "03UUf29nTPxN",
+        "outputId": "5dc96c1e-647b-44d4-dec4-0a86a7caae36"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hii ndio data yetu:\n",
+            "   saa  joto_c  mwangaza  Power_W\n",
+            "0    8      25       300       20\n",
+            "1   10      29       600       50\n",
+            "2   12      33       900       85\n",
+            "3   14      31       750       70\n",
+            "4   16      27       400       35\n",
+            "\n",
+            "---FEATURES ZA AI---\n",
+            "AI itaangalia: ['saa', 'joto', 'mwangaza', 'mawingu_%']\n",
+            "AI itatabiri: Power_W\n"
+          ]
+        }
+      ],
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "data={\n",
+        "    'saa':[8,10,12,14,16],\n",
+        "    'joto_c':[25,29,33,31,27],\n",
+        "    'mwangaza':[300,600,900,750,400], # Lux\n",
+        "    'Power_W':[20,50,85,70,35]\n",
+        "}\n",
+        "df=pd.DataFrame(data)\n",
+        "print(\"Hii ndio data yetu:\")\n",
+        "print(df)\n",
+        "\n",
+        "print(\"\\n---FEATURES ZA AI---\")\n",
+        "features=['saa','joto','mwangaza','mawingu_%']\n",
+        "target='Power_W'\n",
+        "\n",
+        "print(\"AI itaangalia:\", features)\n",
+        "print(\"AI itatabiri:\", target)"
+      ]
+    }
+  ]
+}
