@@ -44,9 +44,20 @@ Machime learning model that forecasts 'Power_W' using 'saa, joto, mwangaza, mawi
 
 ## Roadmap
 - [x] week 1: Data cleaning and Analysis
-- [ ] week 2: Train/Test split and first model
+- [ ] week 2: Train/Test split and first model-COMPLETED R^2=0.985
 - [ ] week 3: Model Evaluation
 - [ ] week 4: Deployment
+
+## Week 2: AI Model Validation and Visualizatio
+- [x] Train AI Model with RandomForest
+- [x] Model Accuracy: R^2= 0.985
+- [x] Validation Graph: AI vs sensor
+- [ ] %Loss Analysis bar chart
+- [ ] Correlation Heatmap
+
+## Latest Result: AI vs Sensor Graph
+![AI_validation](validation_graph.png)
+*Blue Dotted = AI prediction | orange= real sensor Data
 
 ## Dataset
 Real solar data collected in Mwanza Tanzania.
