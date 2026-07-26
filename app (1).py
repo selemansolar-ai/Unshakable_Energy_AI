@@ -5,7 +5,7 @@ from datetime import datetime
 import time, json
 
 
-API_KEY = "13b94b58771cd53150cf1bf4c1fd3f32"
+API_KEY = st.secrets["API_KEY"]
 CITY = "Mwanza, TZ"
 
 def get_weather():
