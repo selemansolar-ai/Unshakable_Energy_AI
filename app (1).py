@@ -1,18 +1,21 @@
 
 import requests
 import streamlit as st
+import pandas
 from datetime import datetime
-import time, json
+import time
 
 
-API_KEY = "13b94b58771cd53150cf1bf4c1fd3f32"
+API_KEY = st.secrets["API_KEY"]
 CITY = "Mwanza, TZ"
 
 def get_weather():
-  url=f"https://api.openweathermap.org/data/2.5/forecast?q={CITY}&appid={API-kEY}&units=metric"
-  response = requests.get(url)
-  data = response.json()
-
+  url=f"https://api.openweathermap.org/data/2.5/forecast?q={CITY}&appid={API-kEY}&units=metric&lang=sw"
+  with st.spinner('Inapakia data ya hali ya hewa... ⛅ Tafadhali subiri 10sec'):
+    response = requests.get(url)
+    data = response.json()
+ 
+  return data
   st.title("☀️ UNSHAKABLE ENERGY - AI SOLAR PREDICTION")
   st.subheader(f"⛅ Hali ya Hewa Mwanza - saa 24 zijazo")
   for item in data['list'][:8]: # saa 8 = 24 saa
