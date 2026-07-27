@@ -8,9 +8,10 @@ import time
 
 API_KEY = st.secrets["API_KEY"]
 CITY = "Mwanza, TZ"
+st.set_page_config(page_title="Unshakable Energy", page_icon="☀️", layout="wide")
 
 def get_weather():
-  url=f"https://api.openweathermap.org/data/2.5/forecast?q={CITY}&appid={API-kEY}&units=metric&lang=sw"
+  API_URL=f"https://api.openweathermap.org/data/2.5/forecast?q={CITY}&appid={API-kEY}&units=metric&lang=sw"
   with st.spinner('Inapakia data ya hali ya hewa... ⛅ Tafadhali subiri 10sec'):
     response = requests.get(url)
     data = response.json()
