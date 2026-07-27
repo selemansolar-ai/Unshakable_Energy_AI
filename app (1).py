@@ -9,17 +9,25 @@ API_KEY = st.secrets["API_KEY"]
 CITY = "Mwanza, TZ"
 
 st.set_page_config(page_title="Unshakable Energy", page_icon="☀️", layout="wide")
+st.title("☀️ UNSHAKABLE ENERGY - AI SOLAR PREDICTION")
 
 def get_weather():
-  API_URL=f"https://api.openweathermap.org/data/2.5/forecast?q={CITY}&appid={API-kEY}&units=metric&lang=sw"
+  url=f"https://api.openweathermap.org/data/2.5/forecast?q={CITY}&appid={API-kEY}&units=metric&lang=sw"
+  
   with st.spinner('Inapakia data ya hali ya hewa... ⛅ Tafadhali subiri 10sec'):
     response = requests.get(url)
-    data = response.json()
- 
-  return data
-  st.title("☀️ UNSHAKABLE ENERGY - AI SOLAR PREDICTION")
+  
+  if response.status_code == 200:
+    return response.json()
+  else:
+    st.error(f"API Error: {response.status_code}")
+    return None
+data = get_weather()
+
+if data:
   st.subheader(f"⛅ Hali ya Hewa Mwanza - saa 24 zijazo")
-  for item in data['list'][:8]: # saa 8 = 24 saa
+  
+  for item in data['list'][:8]: # saa 8 = Masaa 24
     time = datatime.fromtimestamp(item['dt']).strftime('%d/%m %H:%M')
     temp = item['main']['temp']
     cloud = item['clouds']['all'] # % ya mawingu ndio muhimu kwa jua
@@ -31,9 +39,9 @@ def get_weather():
     col3.write(f"Mawingu: {cloud}%")
 
     if cloud < 20:
-      st.success("☀️ PREDICTION: Jua kali - power itakuwa JUU ")
+      st.success("☀️ PREDICTION: Power JUU SANA - Weka Solar yako max ")
     elif cloud < 60:
-      st.warning("⛅ PREDICTIO:Jua la kawaida- Power ya kati, dhibiti matumizi")
+      st.warning("⛅ PREDICTIO: Power ya KATI - Tumia kwa Akili")
     else:
-      st.error("☁️ PREDICTION: Mawingu meng - Power itakuwa chini ,chaji betri leo")
+      st.error("☁️ PREDICTION: Power CHINI - Chaji power Bank")
     st.divider()
