@@ -8,6 +8,7 @@ import time
 
 API_KEY = st.secrets["API_KEY"]
 CITY = "Mwanza, TZ"
+
 st.set_page_config(page_title="Unshakable Energy", page_icon="☀️", layout="wide")
 
 def get_weather():
