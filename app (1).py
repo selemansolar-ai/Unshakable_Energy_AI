@@ -1,7 +1,7 @@
 
 import requests
 import streamlit as st
-import pandas pd
+import pandas as pd
 from datetime import datetime
 import time
 
