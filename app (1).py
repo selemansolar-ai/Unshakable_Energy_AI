@@ -67,7 +67,7 @@ if data:
     st.divider()
 
   st.subheader("📊 Chati ya joto vs Mawingu")
-  df = pd.DataFrame({'saa'}: times, 'Joto c': temps, 'mawingu %': clouds})
+  df = pd.DataFrame({'saa': times, 'Joto c': temps, 'mawingu %': clouds})
   st.line_chart(df.set_index('saa'))
 
   st.subheader("🗺️ Ramani ya Mwanza")
