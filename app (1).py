@@ -3,14 +3,25 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 import time
-
+import sqlite3
+import folium
+from streamlit_folium import folium
 
 API_KEY = st.secrets["API_KEY"]
 CITY = "Mwanza, TZ"
+LAT, LON = -2.5164, 32.9166
 
 st.set_page_config(page_title="Unshakable Energy", page_icon="☀️", layout="wide")
 st.title("☀️ UNSHAKABLE ENERGY - AI SOLAR PREDICTION")
 
+conn = sqlite3.connect('solar_data.db')
+c = conn.cursor()
+c = execute('''CREATE TABLE IF NOT EXISTS history(time TEXT, temp REAl, cloud INTEGER, prediction TEXT)''')
+
+def save_data(time, temp, cloud, pred):
+  c.execute("INSERT INTO history VALUES(?, ?, ?, ?)",(time, temp, cloud, pred))
+  conn.commit()
+  
 def get_weather():
   url=f"https://api.openweathermap.org/data/2.5/forecast?q={CITY}&appid={API_KEY}&units=metric&lang=sw"
   
@@ -25,6 +36,7 @@ def get_weather():
 data = get_weather()
 
 if data:
+  times, temps, clouds, preds = [], []
   st.subheader(f"⛅ Hali ya Hewa Mwanza - saa 24 zijazo")
   
   for item in data['list'][:8]: # saa 8 = Masaa 24
@@ -44,4 +56,27 @@ if data:
       st.warning("⛅ PREDICTIO: Power ya KATI - Tumia kwa Akili")
     else:
       st.error("☁️ PREDICTION: Power CHINI - Chaji power Bank")
+
+    times.append(time)
+    temps.append(temp)
+    clouds.append(cloud)
+    preds.append(pred)
+
+
+    save_data(time, temp, cloud, pred)
     st.divider()
+
+  st.subheader("📊 Chati ya joto vs Mawingu")
+  df = pd.DataFrame({'saa'}: times, 'Joto c': temps, 'mawingu %': clouds})
+  st.line_chart(df.set_index('saa'))
+
+  st.subheader("🗺️ Ramani ya Mwanza")
+  m = folium.map(location=[LAT, LON], zoom_start=11)
+  folium.marker([LAT, LON], popup = "Mwanza - Solar Prediction Hub").add_to(m)
+  st_folium(m, width=700, height=400)
+
+if st.button("Ona Historia ya Data"):
+  df_hist = pd.read_sql_query("SELECT * FROM history ORDER BY time DESC LIMIT 20", conn)
+  st.dataframe(df_hist)
+
+conn.close()
