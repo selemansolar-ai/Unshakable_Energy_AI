@@ -28,7 +28,7 @@ if data:
   st.subheader(f"⛅ Hali ya Hewa Mwanza - saa 24 zijazo")
   
   for item in data['list'][:8]: # saa 8 = Masaa 24
-    time = datatime.fromtimestamp(item['dt']).strftime('%d/%m %H:%M')
+    time = datetime.fromtimestamp(item['dt']).strftime('%d/%m %H:%M')
     temp = item['main']['temp']
     cloud = item['clouds']['all'] # % ya mawingu ndio muhimu kwa jua
     weather = item['weather'][0]['description']
