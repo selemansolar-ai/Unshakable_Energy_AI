@@ -74,7 +74,7 @@ if data:
   st.line_chart(df.set_index('saa'))
 
   st.subheader("🗺️ Ramani ya Mwanza")
-  m = folium.map(location=[LAT, LON], zoom_start=11)
+  m = folium.map(location=[LAT, LON], zoom_start=10)
   folium.marker([LAT, LON], popup = "Mwanza - Solar Prediction Hub").add_to(m)
   st_folium(m, width=700, height=400)
 
