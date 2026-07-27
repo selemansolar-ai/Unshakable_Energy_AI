@@ -18,7 +18,6 @@ conn = sqlite3.connect('solar_data.db')
 c = conn.cursor()
 c.execute('''CREATE TABLE IF NOT EXISTS history(time TEXT, temp REAl, cloud INTEGER, prediction TEXT)''')
 
-@st.cache_data
 def save_data(time, temp, cloud, pred):
   conn = sqlite3.connect('solar_data.db')
   c = conn.cursor()
