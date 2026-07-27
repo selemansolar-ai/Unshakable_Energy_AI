@@ -5,7 +5,8 @@ from datetime import datetime
 import time
 import sqlite3
 import folium
-from streamlit_folium import st_folium
+from streamlit_folium
+import st_folium
 
 API_KEY = st.secrets["API_KEY"]
 CITY = "Mwanza, TZ"
