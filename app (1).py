@@ -20,7 +20,7 @@ c.execute('''CREATE TABLE IF NOT EXISTS history(time TEXT, temp REAl, cloud INTE
 
 @st.cache_data
 def save_data(time, temp, cloud, pred):
-  c.execute("INSERT OR IGNORE INTO history VALUES(?, ?, ?, ?)",(time, temp, cloud, pred))
+  c.execute("INSERT  INTO history VALUES(?, ?, ?, ?)",(time, temp, cloud, pred))
   conn.commit()
   conn.close()
   
