@@ -5,8 +5,7 @@ from datetime import datetime
 import time
 import sqlite3
 import folium
-from streamlit_folium
-import st_folium
+from streamlit_folium import st_folium
 
 API_KEY = st.secrets["API_KEY"]
 CITY = "Mwanza, TZ"
@@ -17,7 +16,7 @@ st.title("☀️ UNSHAKABLE ENERGY - AI SOLAR PREDICTION")
 
 conn = sqlite3.connect('solar_data.db')
 c = conn.cursor()
-c = execute('''CREATE TABLE IF NOT EXISTS history(time TEXT, temp REAl, cloud INTEGER, prediction TEXT)''')
+c.execute('''CREATE TABLE IF NOT EXISTS history(time TEXT, temp REAl, cloud INTEGER, prediction TEXT)''')
 
 def save_data(time, temp, cloud, pred):
   c.execute("INSERT INTO history VALUES(?, ?, ?, ?)",(time, temp, cloud, pred))
