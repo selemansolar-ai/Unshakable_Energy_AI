@@ -55,7 +55,7 @@ if data:
       st.success(f"☀️ PREDICTION: {pred}")
     elif cloud < 60:
       pred = "Power ya KATI - Mawingu kidogo"
-      st.warning("⛅ PREDICTIO: {pred}")
+      st.warning(f"⛅ PREDICTION: {pred}")
     else:
       pred = "Power CHINI - Mawingu mengi"
       st.error("☁️ PREDICTION: {pred}")
