@@ -36,7 +36,7 @@ def get_weather():
 data = get_weather()
 
 if data:
-  times, temps, clouds, preds = [], []
+  times, temps, clouds, preds = [], [], [], []
   st.subheader(f"⛅ Hali ya Hewa Mwanza - saa 24 zijazo")
   
   for item in data['list'][:8]: # saa 8 = Masaa 24
