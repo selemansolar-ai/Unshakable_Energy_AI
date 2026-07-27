@@ -51,11 +51,14 @@ if data:
     col3.write(f"Mawingu: {cloud}%")
 
     if cloud < 20:
-      st.success("☀️ PREDICTION: Power JUU SANA - Weka Solar yako max ")
+      pred = "Power JUU - Jua kali"
+      st.success(f"☀️ PREDICTION: {pred}")
     elif cloud < 60:
-      st.warning("⛅ PREDICTIO: Power ya KATI - Tumia kwa Akili")
+      pred = "Power ya KATI - Mawingu kidogo"
+      st.warning("⛅ PREDICTIO: {pred}")
     else:
-      st.error("☁️ PREDICTION: Power CHINI - Chaji power Bank")
+      pred = "Power CHINI - Mawingu mengi"
+      st.error("☁️ PREDICTION: {pred}")
 
     times.append(time)
     temps.append(temp)
