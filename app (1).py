@@ -48,6 +48,7 @@ if 'show_times' not in st.session_state:
     time = datetime.fromtimestamp(item['dt']).strftime('%d/%m %H:%M')
     temp = item['main']['temp']
     cloud = item['clouds']['all'] # % ya mawingu ndio muhimu kwa jua
+    wind = item['wind']['speed'] # m/s
     weather = item['weather'][0]['description']
 
     col1,col2,col3 = st.columns(3)
@@ -64,7 +65,12 @@ if 'show_times' not in st.session_state:
         if power > 100: power = 100
       else:
          power = 100 - cloud
-        
+      if wind > 5:
+        power = power + 5 # Upepo unapooza paneli
+        if power > 100: power = 100
+        note = " + Upepo mzuri"
+      else:
+        note = ""
       if power > 75:
         pred = f"Power JUU - {power}%  - Jua kali"
         st.success(f"☀️ PREDICTION: {pred}")
