@@ -41,7 +41,9 @@ data = get_weather()
 if data:
   times, temps, clouds, preds = [], [], [], []
   st.subheader(f"⛅ Hali ya Hewa Mwanza - saa 24 zijazo")
-  
+
+if 'show_times' not in st.session_state:
+  st.session_state.shown_times = []
   for item in data['list'][:8]: # saa 8 = Masaa 24
     time = datetime.fromtimestamp(item['dt']).strftime('%d/%m %H:%M')
     temp = item['main']['temp']
@@ -52,25 +54,37 @@ if data:
     col1.write(f"**{time}**")
     col2.write(f"{weather} | {temp}°C")
     col3.write(f"Mawingu: {cloud}%")
+    
+hour = int(time.split()[1].split(':')[0]
 
-    if cloud < 20:
-      pred = "Power JUU - Jua kali"
-      st.success(f"☀️ PREDICTION: {pred}")
-    elif cloud < 60:
-      pred = "Power ya KATI - Mawingu kidogo"
-      st.warning(f"⛅ PREDICTION: {pred}")
-    else:
-      pred = "Power CHINI - Mawingu mengi"
-      st.error("☁️ PREDICTION: {pred}")
+is_day = 6<= hour<18
+           
+if is_day:
+  power = 100 - cloud
+  if power > 80:
+    pred = f"Power JUU - {power}%  - Jua kali"
+    st.success(f"☀️ PREDICTION: {pred}")
+  elif power > 80:
+    pred = f"Power ya KATI - {power}% - Mawingu kidogo"
+    st.warning(f"⛅ PREDICTION: {pred}")
+   else:
+     pred = f"Power CHINI {power}%- Mawingu mengi"
+     st.error("☁️ PREDICTION: {pred}")
 
+else:
+  power = 0 #usiku hakuna jua
+  pred = f"Power SIFURI - Ni Usiku"
+  st.info(f"🌙 PREDICTION: {pred}")
+  
     times.append(time)
     temps.append(temp)
     clouds.append(cloud)
     preds.append(pred)
 
-
-    save_data(time, temp, cloud, pred)
-    st.divider()
+if time not in st.session_state.show_times:
+  save_data(time, temp, cloud, pred)
+  st.session_state.shown_time.append(time)
+  st.divider()
 
   st.subheader("📊 Chati ya joto vs Mawingu")
   df = pd.DataFrame({'saa': times, 'Joto c': temps, 'mawingu %': clouds})
