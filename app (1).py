@@ -55,7 +55,7 @@ if 'show_times' not in st.session_state:
     col2.write(f"{weather} | {temp}°C")
     col3.write(f"Mawingu: {cloud}%")
     
-hour = int(time.split()[1].split(':')[0]
+hour = int(time.split()[1].split(':')[0])
 
 is_day = 6<= hour<18
            
