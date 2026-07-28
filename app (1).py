@@ -16,12 +16,12 @@ st.title("☀️ UNSHAKABLE ENERGY - AI SOLAR PREDICTION")
 
 conn = sqlite3.connect('solar_data.db')
 c = conn.cursor()
-c.execute('''CREATE TABLE IF NOT EXISTS history(time TEXT, temp REAl, cloud INTEGER, prediction TEXT)''')
+c.execute('''CREATE TABLE IF NOT EXISTS history(time TEXT UNIQUE, temp REAl, cloud INTEGER, prediction TEXT)''')
 
 def save_data(time, temp, cloud, pred):
   conn = sqlite3.connect('solar_data.db')
   c = conn.cursor()
-  c.execute("INSERT  INTO history VALUES(?, ?, ?, ?)",(time, temp, cloud, pred))
+  c.execute("INSERT OR IGNORE INTO history VALUES(?, ?, ?, ?)",(time, temp, cloud, pred))
   conn.commit()
   conn.close()
   
@@ -55,30 +55,29 @@ if 'show_times' not in st.session_state:
     col2.write(f"{weather} | {temp}°C")
     col3.write(f"Mawingu: {cloud}%")
     
-hour = int(time.split()[1].split(':')[0])
-
-is_day = 6<= hour<18
+    hour = int(time.split()[1].split(':')[0])
+    is_day = 6<= hour<18
            
-if is_day:
-  power = 100 - cloud
-  if power > 80:
-    pred = f"Power JUU - {power}%  - Jua kali"
-    st.success(f"☀️ PREDICTION: {pred}")
-  elif power > 50:
-    pred = f"Power ya KATI - {power}% - Mawingu kidogo"
-    st.warning(f"⛅ PREDICTION: {pred}")
-  else:
-    pred = f"Power CHINI {power}%- Mawingu mengi"
-    st.error(f"☁️ PREDICTION: {pred}")
-else:
-  power = 0 #usiku hakuna jua
-  pred = f"Power SIFURI - Ni Usiku"
-  st.info(f"🌙 PREDICTION: {pred}")
+   if is_day:
+     power = 100 - cloud
+     if power > 80:
+       pred = f"Power JUU - {power}%  - Jua kali"
+       st.success(f"☀️ PREDICTION: {pred}")
+     elif power > 50:
+       pred = f"Power ya KATI - {power}% - Mawingu kidogo"
+       st.warning(f"⛅ PREDICTION: {pred}")
+     else:
+       pred = f"Power CHINI {power}%- Mawingu mengi"
+       st.error(f"☁️ PREDICTION: {pred}")
+   else:
+     power = 0 #usiku hakuna jua
+     pred = f"Power SIFURI - Ni Usiku"
+     st.info(f"🌙 PREDICTION: {pred}")
   
-  times.append(time)
-  temps.append(temp)
-  clouds.append(cloud)
-  preds.append(pred)
+     times.append(time)
+     temps.append(temp)
+     clouds.append(cloud)
+     preds.append(pred)
 
 if time not in st.session_state.shown_times:
   save_data(time, temp, cloud, pred)
