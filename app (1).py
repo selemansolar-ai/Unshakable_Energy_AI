@@ -75,10 +75,10 @@ else:
   pred = f"Power SIFURI - Ni Usiku"
   st.info(f"🌙 PREDICTION: {pred}")
   
-    times.append(time)
-    temps.append(temp)
-    clouds.append(cloud)
-    preds.append(pred)
+  times.append(time)
+  temps.append(temp)
+  clouds.append(cloud)
+  preds.append(pred)
 
 if time not in st.session_state.shown_times:
   save_data(time, temp, cloud, pred)
