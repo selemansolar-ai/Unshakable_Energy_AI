@@ -84,7 +84,11 @@ if 'show_times' not in st.session_state:
       power = 0 #usiku hakuna jua
       pred = f"Power SIFURI - Ni Usiku"
       st.info(f"🌙 PREDICTION: {pred}")
-  
+   
+    if power > 85:
+      st.balloons()
+      st.toast(f"🔔 ALERT: Charge batteries! power itakuwa {power}% saa {hour}: 00") 
+     
       times.append(time)
       temps.append(temp)
       clouds.append(cloud)
