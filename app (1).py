@@ -13,6 +13,11 @@ LAT, LON = -2.5164, 32.9166
 
 st.set_page_config(page_title="Unshakable Energy", page_icon="☀️", layout="wide")
 st.title("☀️ UNSHAKABLE ENERGY - AI SOLAR PREDICTION")
+st.subheader("📊 LIVE MONITORING - MWANZA")
+col1, col2, col3 = st.columns(3)
+col1.metric("Power Sasa", "86%", "JUU")
+col2.metric("Joto", "23°C", "")
+col3.metric("Upepo", "3.5m/s", "")
 
 conn = sqlite3.connect('solar_data.db')
 c = conn.cursor()
@@ -51,11 +56,11 @@ if 'show_times' not in st.session_state:
     wind = item['wind']['speed'] # m/s
     weather = item['weather'][0]['description']
 
-    col1,col2,col3 = st.columns(3)
+    col1,col2,col3,col4 = st.columns(4)
     col1.write(f"**{time}**")
     col2.write(f"{weather} | {temp}°C")
     col3.write(f"Mawingu: {cloud}%")
-    
+    col4.write(f"💨 Upepo: {wind}m/s")
     hour = int(time.split()[1].split(':')[0])
     is_day = 6<= hour<18
            
