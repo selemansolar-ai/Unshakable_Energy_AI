@@ -70,11 +70,10 @@ if is_day:
    else:
      pred = f"Power CHINI {power}%- Mawingu mengi"
      st.error("☁️ PREDICTION: {pred}")
-
-else:
-  power = 0 #usiku hakuna jua
-  pred = f"Power SIFURI - Ni Usiku"
-  st.info(f"🌙 PREDICTION: {pred}")
+  else:
+    power = 0 #usiku hakuna jua
+    pred = f"Power SIFURI - Ni Usiku"
+    st.info(f"🌙 PREDICTION: {pred}")
   
     times.append(time)
     temps.append(temp)
