@@ -64,16 +64,16 @@ if is_day:
   if power > 80:
     pred = f"Power JUU - {power}%  - Jua kali"
     st.success(f"☀️ PREDICTION: {pred}")
-  elif power > 80:
+  elif power > 50:
     pred = f"Power ya KATI - {power}% - Mawingu kidogo"
     st.warning(f"⛅ PREDICTION: {pred}")
    else:
      pred = f"Power CHINI {power}%- Mawingu mengi"
      st.error("☁️ PREDICTION: {pred}")
-  else:
-    power = 0 #usiku hakuna jua
-    pred = f"Power SIFURI - Ni Usiku"
-    st.info(f"🌙 PREDICTION: {pred}")
+else:
+  power = 0 #usiku hakuna jua
+  pred = f"Power SIFURI - Ni Usiku"
+  st.info(f"🌙 PREDICTION: {pred}")
   
     times.append(time)
     temps.append(temp)
