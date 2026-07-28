@@ -67,9 +67,9 @@ if is_day:
   elif power > 50:
     pred = f"Power ya KATI - {power}% - Mawingu kidogo"
     st.warning(f"⛅ PREDICTION: {pred}")
-   else:
-     pred = f"Power CHINI {power}%- Mawingu mengi"
-     st.error(f"☁️ PREDICTION: {pred}")
+  else:
+    pred = f"Power CHINI {power}%- Mawingu mengi"
+    st.error(f"☁️ PREDICTION: {pred}")
 else:
   power = 0 #usiku hakuna jua
   pred = f"Power SIFURI - Ni Usiku"
