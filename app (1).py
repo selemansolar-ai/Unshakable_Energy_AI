@@ -69,7 +69,7 @@ if is_day:
     st.warning(f"⛅ PREDICTION: {pred}")
    else:
      pred = f"Power CHINI {power}%- Mawingu mengi"
-     st.error("☁️ PREDICTION: {pred}")
+     st.error(f"☁️ PREDICTION: {pred}")
 else:
   power = 0 #usiku hakuna jua
   pred = f"Power SIFURI - Ni Usiku"
@@ -80,9 +80,9 @@ else:
     clouds.append(cloud)
     preds.append(pred)
 
-if time not in st.session_state.show_times:
+if time not in st.session_state.shown_times:
   save_data(time, temp, cloud, pred)
-  st.session_state.shown_time.append(time)
+  st.session_state.shown_times.append(time)
   st.divider()
 
   st.subheader("📊 Chati ya joto vs Mawingu")
