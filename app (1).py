@@ -59,11 +59,16 @@ if 'show_times' not in st.session_state:
     is_day = 6<= hour<18
            
     if is_day:
-      power = 100 - cloud
-      if power > 80:
+      if 10 <= hour <= 15:
+        power = 115 - cloud
+        if power > 100: power = 100
+      else:
+         power = 100 - cloud
+        
+      if power > 75:
         pred = f"Power JUU - {power}%  - Jua kali"
         st.success(f"☀️ PREDICTION: {pred}")
-      elif power > 50:
+      elif power > 45:
         pred = f"Power ya KATI - {power}% - Mawingu kidogo"
         st.warning(f"⛅ PREDICTION: {pred}")
       else:
