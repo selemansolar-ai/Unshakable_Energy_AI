@@ -14,7 +14,7 @@ LAT, LON = -2.5164, 32.9166
 st.set_page_config(page_title="Unshakable Energy", page_icon="☀️", layout="wide")
 st.title("☀️ UNSHAKABLE ENERGY - AI SOLAR PREDICTION")
 st.subheader("📊 LIVE MONITORING - MWANZA")
-if power_prediction < 20:
+if power < 20:
   st.error("⚠️ ALERT:Low Solar Generation Expected Tomorrow")
 col1, col2, col3 = st.columns(3)
 col1.metric("Power Sasa", "86%", "JUU")
