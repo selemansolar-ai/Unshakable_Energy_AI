@@ -94,7 +94,7 @@ if 'show_times' not in st.session_state:
       st.balloons()
       st.toast(f"🔔 ALERT: Charge batteries! power itakuwa {power}% saa {hour}: 00") 
     if power < 20:
-      st.error("⚠️ ALERT: Low Solar Generation Expected at this time")
+      st.error("⚠️ ALERT: Low Solar Power Generation Expected at this time")
       times.append(time)
       temps.append(temp)
       clouds.append(cloud)
