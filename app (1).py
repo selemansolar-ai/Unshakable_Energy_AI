@@ -14,8 +14,6 @@ LAT, LON = -2.5164, 32.9166
 st.set_page_config(page_title="Unshakable Energy", page_icon="☀️", layout="wide")
 st.title("☀️ UNSHAKABLE ENERGY - AI SOLAR PREDICTION")
 st.subheader("📊 LIVE MONITORING - MWANZA")
-if power < 20:
-  st.error("⚠️ ALERT:Low Solar Generation Expected Tomorrow")
 col1, col2, col3 = st.columns(3)
 col1.metric("Power Sasa", "86%", "JUU")
 col2.metric("Joto", "23°C", "")
@@ -95,7 +93,8 @@ if 'show_times' not in st.session_state:
     if power > 85:
       st.balloons()
       st.toast(f"🔔 ALERT: Charge batteries! power itakuwa {power}% saa {hour}: 00") 
-     
+    if power < 20:
+      st.error("⚠️ ALERT: Low Solar Generation Expected Tomorrow")
       times.append(time)
       temps.append(temp)
       clouds.append(cloud)
