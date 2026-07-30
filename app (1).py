@@ -2,12 +2,13 @@ import requests
 import streamlit as st
 import pandas as pd
 from datetime import datetime
+import os
 import time
 import sqlite3
 import folium
 from streamlit_folium import st_folium
 
-API_KEY = st.secrets["API_KEY"]
+API_KEY = os.getenv["WEATHER_API_KEY"]
 CITY = "Mwanza, TZ"
 LAT, LON = -2.5164, 32.9166
 
