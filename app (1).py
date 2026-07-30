@@ -48,8 +48,8 @@ if data and 'list' in data:
   times, temps, clouds, preds = [], [], [], []
   st.subheader(f"⛅ Hali ya Hewa Mwanza - saa 24 zijazo")
 
-if 'show_times' not in st.session_state:
-  st.session_state.shown_times = []
+  if 'show_times' not in st.session_state:
+    st.session_state.shown_times = []
   for item in data['list'][:8]: # saa 8 = Masaa 24
     time = datetime.fromtimestamp(item['dt']).strftime('%d/%m %H:%M')
     temp = item['main']['temp']
