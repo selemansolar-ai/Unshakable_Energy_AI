@@ -97,24 +97,25 @@ if data and 'list' in data:
       st.toast(f"🔔 ALERT: Charge batteries! power itakuwa {power}% saa {hour}: 00") 
     if power < 20:
       st.error("⚠️ ALERT: Low Solar Power Generation Expected at this time")
-      times.append(time)
-      temps.append(temp)
-      clouds.append(cloud)
-      preds.append(pred)
+     
+    times.append(time)
+    temps.append(temp)
+    clouds.append(cloud)
+    preds.append(pred)
 
-if time not in st.session_state.shown_times:
-  save_data(time, temp, cloud, pred)
-  st.session_state.shown_times.append(time)
-  st.divider()
+  if time not in st.session_state.shown_times:
+    save_data(time, temp, cloud, pred)
+    st.session_state.shown_times.append(time)
+    st.divider()
 
-  st.subheader("📊 Chati ya joto vs Mawingu")
-  df = pd.DataFrame({'saa': times, 'Joto c': temps, 'mawingu %': clouds})
-  st.line_chart(df.set_index('saa'))
+    st.subheader("📊 Chati ya joto vs Mawingu")
+    df = pd.DataFrame({'saa': times, 'Joto c': temps, 'mawingu %': clouds})
+    st.line_chart(df.set_index('saa'))
 
-  st.subheader("🗺️ Ramani ya Mwanza")
-  m = folium.Map(location=[LAT, LON], zoom_start=10)
-  folium.Marker([LAT, LON], popup = "Mwanza - Solar Prediction Hub").add_to(m)
-  st_folium(m, width=700, height=400)
+    st.subheader("🗺️ Ramani ya Mwanza")
+    m = folium.Map(location=[LAT, LON], zoom_start=10)
+    folium.Marker([LAT, LON], popup = "Mwanza - Solar Prediction Hub").add_to(m)
+    st_folium(m, width=700, height=400)
 
 if st.button("Ona Historia ya Data"):
   df_hist = pd.read_sql_query("SELECT * FROM history ORDER BY time DESC LIMIT 20", conn)
