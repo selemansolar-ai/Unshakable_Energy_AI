@@ -32,7 +32,7 @@ def save_data(time, temp, cloud, pred):
   conn.close()
   
 def get_weather():
-  url=f"https://api.openweathermap.org/data/2.5/forecast?q={CITY}&appid={API_KEY}&units=metric&lang=sw"
+  url=f"https://api.openweathermap.org/data/2.5/forecast?q={CITY}&appid={WEATHER_API_KEY}&units=metric&lang=sw"
   
   with st.spinner('Inapakia data ya hali ya hewa... ⛅ Tafadhali subiri 10sec'):
     response = requests.get(url)
