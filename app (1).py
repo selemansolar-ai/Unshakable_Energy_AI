@@ -46,7 +46,10 @@ def get_weather():
     st.error(f"API Error: {response.status_code}")
     return None
 data = get_weather()
-
+def send_alert(message, phone="+255xxxxxxxxx"):
+  st.warning(f"ALERT: {message}")
+  print(f"SMS Imetumwa kwa {phone}: {message}")
+  
 if data and 'list' in data:
   times, temps, clouds, preds = [], [], [], []
   st.subheader(f"⛅ Hali ya Hewa Mwanza - saa 24 zijazo")
@@ -57,7 +60,15 @@ if data and 'list' in data:
     cloud = item['clouds']['all'] # % ya mawingu ndio muhimu kwa jua
     wind = item['wind']['speed'] # m/s
     weather = item['weather'][0]['description']
-
+    rain_chance = 0
+    if 'rain' in weather.lower() or cloud > 80:
+      rain_chance = 80
+    elif cloud > 60:
+      rain_chance = 50
+    if rain_chance > 70:
+      alert_message=f"Mvua inatarajiwa saa {time.strftime('%H:%M')}
+      send_alert(alert_message)
+      
     col1,col2,col3,col4 = st.columns(4)
     col1.write(f"**{time}**")
     col2.write(f"{weather} | {temp}°C")
