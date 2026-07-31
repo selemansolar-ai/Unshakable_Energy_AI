@@ -55,7 +55,8 @@ if data and 'list' in data:
   st.subheader(f"⛅ Hali ya Hewa Mwanza - saa 24 zijazo")
 
   for item in data['list'][:12]: # saa 8 = Masaa 24
-    time = datetime.fromtimestamp(item['dt']).strftime('%d/%m %H:%M')
+    dt_obj = datetime.fromtimestamp(item['dt'])
+    time_str = dt_obj.strftime("%Y-%m-%d %H:%M")
     temp = item['main']['temp']
     cloud = item['clouds']['all'] # % ya mawingu ndio muhimu kwa jua
     wind = item['wind']['speed'] # m/s
@@ -70,7 +71,7 @@ if data and 'list' in data:
       send_alert(alert_message)
       
     col1,col2,col3,col4 = st.columns(4)
-    col1.write(f"**{time}**")
+    col1.write(f"**{time_str}**")
     col2.write(f"{weather} | {temp}°C")
     col3.write(f"Mawingu: {cloud}%")
     col4.write(f"💨 Upepo: {wind}m/s")
