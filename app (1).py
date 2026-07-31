@@ -115,9 +115,9 @@ if data and 'list' in data:
     clouds.append(cloud)
     preds.append(pred)
 
-  if time not in st.session_state.shown_times:
-    save_data(time, temp, cloud, pred)
-    st.session_state.shown_times.append(time)
+  if time_str not in st.session_state.shown_times:
+    save_data(time_str, temp, cloud, pred)
+    st.session_state.shown_times.append(time_str)
     st.divider()
 
     st.subheader("📊 Chati ya joto vs Mawingu")
