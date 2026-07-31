@@ -18,7 +18,7 @@ def send_sms_africastalking(message):
     SMS.send(message [phone])
     st.success(f"✅ SMS Imetumwa kwa {phone}")
    except Exception as e:
-    st.error(f"📢 SMS error: {e}")
+    st.error(f"📢 SMS Error: {e}")
    
 if 'shown_times' not in st.session_state:
   st.session_state.shown_times = []
