@@ -7,7 +7,18 @@ import time
 import sqlite3
 import folium
 from streamlit_folium import st_folium
+from africastalking import SMS
 
+def send_sms_africastalking(message):
+ try:
+    username = st.secrets["AT_USERNAME"]
+    api_key = st.secrets["AT_API_KEY"]
+    phone = st.secrets["ALERT_PHONE"]
+    SMS.initialize(username,api_key)
+    SMS.send(message [phone])
+    st.success(f"✅ SMS Imetumwa kwa {phone})
+  except Exception as e:
+    st.error(f"📢 SMS error: {e}")
 if 'shown_times' not in st.session_state:
   st.session_state.shown_times = []
   
@@ -46,9 +57,9 @@ def get_weather():
     st.error(f"API Error: {response.status_code}")
     return None
 data = get_weather()
-def send_alert(message, phone="+255xxxxxxxxx"):
-  st.warning(f"ALERT: {message}")
-  print(f"SMS Imetumwa kwa {phone}: {message}")
+def send_alert(message):
+  st.warning(f"📢 ALERT: {message}")
+  send_sms_africastalking(message)
   
 if data and 'list' in data:
   times, temps, clouds, preds = [], [], [], []
