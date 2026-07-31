@@ -18,7 +18,7 @@ def send_sms_africastalking(message):
      st.error("⚠️ weka api key yako secrets kwanza!")
      return
      
-    SMS.initialize(username, api_key)
+    SMS.initialize(username,api_key)
     SMS.send(message, [phone])
     st.success(f"✅ SMS Imetumwa kwa {phone}")
  except Exception as e:
