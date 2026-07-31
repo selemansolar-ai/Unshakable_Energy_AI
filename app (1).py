@@ -91,17 +91,17 @@ if data and 'list' in data:
       else:
         note = ""
       if power > 75:
-        pred = f"Power JUU - {power}%  - Jua kali"
+        pred = "Power JUU - {power}%  - Jua kali"
         st.success(f"☀️ PREDICTION: {pred}")
       elif power > 45:
         pred = "Power ya KATI - {power}% - Mawingu kidogo"
         st.warning(f"⛅ PREDICTION: {pred}")
       else:
-        pred = f"Power CHINI {power}%- Mawingu mengi"
+        pred = "Power CHINI {power}%- Mawingu mengi"
         st.error(f"☁️ PREDICTION: {pred}")
     else:
       power = 0 #usiku hakuna jua
-      pred = f"Power SIFURI - Ni Usiku"
+      pred = "Power SIFURI - Ni Usiku"
       st.info(f"🌙 PREDICTION: {pred}")
    
     if power > 85:
