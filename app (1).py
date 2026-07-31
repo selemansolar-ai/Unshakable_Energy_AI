@@ -16,7 +16,7 @@ def send_sms_africastalking(message):
     phone = st.secrets["ALERT_PHONE"]
     SMS.initialize(username,api_key)
     SMS.send(message [phone])
-    st.success(f"✅ SMS Imetumwa kwa {phone})
+    st.success(f"✅ SMS Imetumwa kwa {phone}")
   except Exception as e:
     st.error(f"📢 SMS error: {e}")
 if 'shown_times' not in st.session_state:
