@@ -75,7 +75,7 @@ if data and 'list' in data:
     col2.write(f"{weather} | {temp}°C")
     col3.write(f"Mawingu: {cloud}%")
     col4.write(f"💨 Upepo: {wind}m/s")
-    hour = int(time.split()[1].split(':')[0])
+    hour = dt_obj.hour
     is_day = 6<= hour<18
            
     if is_day:
