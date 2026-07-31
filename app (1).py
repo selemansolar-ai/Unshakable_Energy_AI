@@ -66,7 +66,7 @@ if data and 'list' in data:
     elif cloud > 60:
       rain_chance = 50
     if rain_chance > 70:
-      alert_message= f"Mvua inatarajiwa saa {time.strftime('%H:%M')}.Funika panel za solar"
+      alert_message = f"Mvua inatarajiwa saa {time.strftime('%H:%M')}.Funika panel za solar!"
       send_alert(alert_message)
       
     col1,col2,col3,col4 = st.columns(4)
@@ -93,7 +93,7 @@ if data and 'list' in data:
         pred = f"Power JUU - {power}%  - Jua kali"
         st.success(f"☀️ PREDICTION: {pred}")
       elif power > 45:
-        pred = f"Power ya KATI - {power}% - Mawingu kidogo"
+        pred = "Power ya KATI - {power}% - Mawingu kidogo"
         st.warning(f"⛅ PREDICTION: {pred}")
       else:
         pred = f"Power CHINI {power}%- Mawingu mengi"
