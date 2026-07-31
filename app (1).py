@@ -14,6 +14,10 @@ def send_sms_africastalking(message):
     username = st.secrets["AT_USERNAME"]
     api_key = st.secrets["AT_API_KEY"]
     phone = st.secrets["ALERT_PHONE"]
+    if not api_key:
+     st.error("⚠️ weka api key yako secrets kwanza!")
+     return
+     
     SMS.initialize(username, api_key)
     SMS.send(message, [phone])
     st.success(f"✅ SMS Imetumwa kwa {phone}")
