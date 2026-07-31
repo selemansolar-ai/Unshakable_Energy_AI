@@ -94,7 +94,7 @@ if data and 'list' in data:
         pred = "Power JUU - {power}%  - Jua kali"
         st.success(f"☀️ PREDICTION: {pred}")
       elif power > 45:
-        pred = "Power ya KATI - {power}% - Mawingu kidogo"
+        pred = "Power ya KATI - Mawingu kidogo"
         st.warning(f"⛅ PREDICTION: {pred}")
       else:
         pred = "Power CHINI {power}%- Mawingu mengi"
