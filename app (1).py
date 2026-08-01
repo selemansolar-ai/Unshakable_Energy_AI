@@ -6,6 +6,7 @@ import os
 import time
 import sqlite3
 import folium
+import africastalking
 from streamlit_folium import st_folium
 from africastalking import SMS
 st.write("API yako ipo:", "NDIO" if st.secrets.get("AT_API_KEY") else "HAPANA")
