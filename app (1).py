@@ -17,9 +17,6 @@ def send_sms_africastalking(message):
     api_key = st.secrets["AT_API_KEY"]
     phone = st.secrets["ALERT_PHONE"]
     shortcode = "84882"
-   if not api_key:
-     st.error("⚠️ weka api key yako secrets kwanza!")
-     return
      
     africastalking.initialize(username, api_key)
     sms = africastalking.SMS
