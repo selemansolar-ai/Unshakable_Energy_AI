@@ -15,7 +15,7 @@ def send_sms_africastalking(message):
  try:
     username = st.secrets["AT_USERNAME"]
     api_key = st.secrets["AT_API_KEY"]
-    phone = st.secrets["ALERT_PHONE"]
+    phone = "0775049026"
     shortcode = "84882"
      
     africastalking.initialize(username, api_key)
@@ -25,7 +25,7 @@ def send_sms_africastalking(message):
 
     recipient = response['SMSMessageData']['Recipients'][0]
     if recipient['status'] == 'Success':
-     st.success(f"✅ SMS Imetumwa kutoka {shortcode} kwa {phone}")
+     st.success(f"✅ SMS Imetumwa kutoka {shortcode} kwenda  kwa {phone}")
     else:
      st.error(f"SMS Imeshindikana: {response}")
      
