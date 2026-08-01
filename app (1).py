@@ -15,7 +15,7 @@ def send_sms_africastalking(message):
  try:
     username = st.secrets["AT_USERNAME"]
     api_key = st.secrets["AT_API_KEY"]
-    phone = "0775049026"
+    phone = st.secrets["0775049026"]
     shortcode = "84882"
      
     africastalking.initialize(username, api_key)
