@@ -25,7 +25,7 @@ def send_sms_africastalking(message):
   
     response= sms.send(message, [phone])
 
-    response['SMSMessageData']['Recipients'][0]
+    recipient = response['SMSMessageData']['Recipients'][0]
     if recipient['status'] == 'Success':
      st.success(f"✅ SMS Imetumwa kwa {phone}")
     else:
