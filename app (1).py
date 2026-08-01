@@ -11,8 +11,6 @@ from africastalking import SMS
 st.write("API yako ipo:", "NDIO" if st.secrets.get("AT_API_KEY") else "HAPANA")
 
 def send_sms_africastalking(message):
- if st.button("🧪Juribu kutuma SMS sasa"):
-  send_sms_africastalking("TEST: Mfumo wa Unshakable Energy unafanya kazi")
  try:
     username = st.secrets["AT_USERNAME"]
     api_key = st.secrets["AT_API_KEY"]
@@ -138,7 +136,9 @@ if data and 'list' in data:
     save_data(time_str, temp, cloud, pred)
     st.session_state.shown_times.append(time_str)
     st.divider()
-
+    if st.button("🧪 Jaribu kutuma SMS sasa", key="test_sms_btn"):
+     send_sms_africastalking("TEST: Mfumo wa Unishakable Energy unafanya kazi vizuri")
+     
     st.subheader("📊 Chati ya joto vs Mawingu")
     df = pd.DataFrame({'saa': times, 'Joto c': temps, 'mawingu %': clouds})
     st.line_chart(df.set_index('saa'))
