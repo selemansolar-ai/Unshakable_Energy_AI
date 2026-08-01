@@ -9,6 +9,8 @@ import folium
 from streamlit_folium import st_folium
 from africastalking import SMS
 st.write("API yako ipo:", "NDIO" if st.secrets.get("AT_API_KEY") else "HAPANA")
+if st.button("Jaribu kutuma SMS sasa"):
+ send_sms_africastalking("TEST: Mfumo wa Unshakable Energy unafanya kazi")
 def send_sms_africastalking(message):
  try:
     username = st.secrets["AT_USERNAME"]
