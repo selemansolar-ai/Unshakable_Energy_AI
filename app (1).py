@@ -11,8 +11,8 @@ from africastalking import SMS
 st.write("API yako ipo:", "NDIO" if st.secrets.get("AT_API_KEY") else "HAPANA")
 
 def send_sms_africastalking(message):
-if st.button("🧪Juribu kutuma SMS sasa"):
- send_sms_africastalking("TEST: Mfumo wa Unshakable Energy unafanya kazi")
+ if st.button("🧪Juribu kutuma SMS sasa"):
+  send_sms_africastalking("TEST: Mfumo wa Unshakable Energy unafanya kazi")
  try:
     username = st.secrets["AT_USERNAME"]
     api_key = st.secrets["AT_API_KEY"]
