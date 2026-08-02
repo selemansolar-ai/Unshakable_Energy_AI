@@ -20,11 +20,11 @@ if "predict" in st.query_params:
   "power_percent":0,
   "alert": "Mvua inakuja"
  }
- st.write(json(data)) 
+ st.json(data)
  st.stop()
  
 st.write("API yako ipo:", "NDIO" if st.secrets.get("AT_API_KEY") else "HAPANA")
-with sidebar:
+with st.sidebar:
  st.header("API KWA JUMEME")
  if st.button("Pata Utabiri wa leo"):
   st.json(data)
