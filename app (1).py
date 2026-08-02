@@ -179,16 +179,3 @@ if st.button("Ona Historia ya Data"):
   st.dataframe(df_hist)
 
 conn.close()
-st.sidebar.markdown("---")
-st.sidebar.subheader("API kwa JUMEME")
-
-if st.sidebar.button("Pata Utabiri wa leo", key="sidebar_predict_btn"):
- latest_pred = preds[-1] if preds else "Hakuna Mvua"
- latest_power = power
- st.sidebar.json({
-  "city": "Mwanza",
-  "prediction": latest_pred,
-  "power_percent": latest_power,
-  "alert": "Mvua inakuja" if rain_chance > 70 else "Sawa"
- })
- 
