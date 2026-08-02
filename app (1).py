@@ -13,6 +13,7 @@ from africastalking import SMS
 
 st.set_page_config(page_title="JUMEME_API", layout="wide")
 query_params = st.query_params
+
 if "predict" in st.query_params:
  data = {
   "city": "Mwanza",
@@ -179,8 +180,9 @@ if st.button("Ona Historia ya Data"):
 conn.close()
 st.sidebar.markdown("---")
 st.sidebar.subheader("API kwa JUMEME")
-if st.sidebar.button("Pata Utabiri wa leo"):
- latest_pred = preds[-1] if preds else "Hakuna data"
+
+if st.sidebar.button("Pata Utabiri wa leo", key="sidebar_predict_btn"):
+ latest_pred = preds[-1] if preds else "Hakuna Mvua"
  latest_power = power
  st.sidebar.json({
   "city": "Mwanza",
