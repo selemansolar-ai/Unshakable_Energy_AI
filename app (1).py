@@ -91,7 +91,7 @@ if data and 'list' in data:
     elif cloud > 60:
       rain_chance = 50
     if rain_chance > 70:
-      alert_message = f"Mvua inatarajiwa saa {time.strftime('%H:%M')}.Funika panel za solar!"
+      alert_message = f"TEST: Power CHINI leo saa {time.strftime('%H:%M')}.Funngua diesel!"
       send_alert(alert_message)
       
     col1,col2,col3,col4 = st.columns(4)
