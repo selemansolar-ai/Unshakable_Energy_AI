@@ -166,7 +166,7 @@ if st.sidebar.button("Pata Utabiri wa leo"):
  latest_pred = preds[-1] if preds else "Hakuna data"
  latest_power = power
  st.sidebar.json({
-  "city": "Mwanza",
+  "city": Mwanza,
   "prediction": latest_pred,
   "power_percent": latest_power,
   "alert": "Mvua inakuja" if rain_chance > 70 else "Sawa"
