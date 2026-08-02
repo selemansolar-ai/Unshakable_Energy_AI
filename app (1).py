@@ -12,10 +12,9 @@ from streamlit_folium import st_folium
 from africastalking import SMS
 
 st.set_page_config(page_title="JUMEME_API", layout="wide")
-query_params = st.query_params
+query_params = st.query_params 
 
-if "predict" in st.query_params:
- data = {
+data = {
   "city": "Mwanza",
   "prediction": "Power. SIFURI - Ni Usiku",
   "power_percent":0,
