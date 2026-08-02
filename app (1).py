@@ -20,7 +20,7 @@ data = {
   "power_percent":0,
   "alert": "Mvua inakuja"
  }
- if "predict" in st.query_params:
+if "predict" in st.query_params:
   st.json(data)
   st.stop()
  
