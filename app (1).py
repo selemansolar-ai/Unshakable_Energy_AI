@@ -24,7 +24,10 @@ if "predict" in st.query_params:
  st.stop()
  
 st.write("API yako ipo:", "NDIO" if st.secrets.get("AT_API_KEY") else "HAPANA")
-
+with sidebar:
+ st.header("API KWA JUMEME")
+ if st.button("Pata Utabiri wa leo"):
+  st.json(data)
 def send_sms_africastalking(message):
  try:
     username = st.secrets["AT_USERNAME"]
