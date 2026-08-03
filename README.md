@@ -49,21 +49,25 @@ Machime learning model that forecasts 'Power_W' using 'saa, joto, mwangaza, mawi
 - [x] Validation Graph: AI vs sensor
 - [x] %Loss Analysis bar Heatmap
 - [x]Correlation Heatmap
-##Latest Result:
-#AI vs Sensor Graph
-![AI_validation](validation_graph.png)
-*Blue Dotted = AI prediction | orange= real seorange
-#Model accuracy
-The model accuracy after traned  R^2 = 0.985 which is 98.5% Efficiency.
--Loss% Analysis bar chart
-![%Loss_Analysis](%loss_graph.png)
-*Correlation Heatmap
-![Correlation](heatmap_graph.png)
-#Features Importance
-![Feature_importance](feature_graph.png)
-I have validated that important feature is light "Mwanga" which is 78% because of Power.
 
-Data set
-Real solar data collected in Mwanza Tanzania.
+##Latest Result:
+
+#AI vs Sensor Graph
+
+![AI_validation](validation_graph.png)
+
+*Blue Dotted = AI prediction | orange= real sensor data
+
+#Model accuracy: **98.5%**
+
+%Loss_Analysisis bar chart
+![%Loss](%loss_graph.png)
+
+#Correlation Heatmap
+![Correlation](heatmap_graph.png)
+
+#Features Importance
+![Features_importance](features_graph.png)
+78% light 'mwanga' because of power so light a.
 
 Bult as part Block 6: 1% Daily.
