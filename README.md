@@ -61,7 +61,7 @@ Machime learning model that forecasts 'Power_W' using 'saa, joto, mwangaza, mawi
 #Model accuracy: **98.5%**
 
 %Loss_Analysisis bar chart
-![%Loss](%Loss_graph.png)
+![%Loss](%loss_graph.png)
 
 #Correlation Heatmap
 ![Correlation](heatmap_graph.png)
