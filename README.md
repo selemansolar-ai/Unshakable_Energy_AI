@@ -62,7 +62,7 @@ Machime learning model that forecasts 'Power_W' using 'saa, joto, mwangaza, mawi
 
 # %Loss_Analysisis bar chart
 
-!(%loss_graph.png)
+![Loss_Analysis](%loss_graph.png)
 
 #Correlation Heatmap
 ![Correlation](heatmap_graph.png)
