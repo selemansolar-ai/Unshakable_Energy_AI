@@ -7,28 +7,13 @@ import time
 import sqlite3
 import folium
 import africastalking
-import json
 from streamlit_folium import st_folium
 from africastalking import SMS
 
-st.set_page_config(page_title="JUMEME_API", layout="wide")
-query_params = st.query_params 
 
-data = {
-  "city": "Mwanza",
-  "prediction": "Power. SIFURI - Ni Usiku",
-  "power_percent":0,
-  "alert": "Mvua inakuja"
- }
-if "predict" in st.query_params:
-  st.json(data)
-  st.stop()
  
 st.write("API yako ipo:", "NDIO" if st.secrets.get("AT_API_KEY") else "HAPANA")
-with st.sidebar:
- st.header("API KWA JUMEME")
- if st.button("Pata Utabiri wa leo"):
-  st.json(data)
+
   
 def send_sms_africastalking(message):
  try:
