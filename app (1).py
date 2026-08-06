@@ -82,7 +82,7 @@ if data and 'list' in data:
   times, temps, clouds, preds = [], [], [], []
   st.subheader(f"⛅ Hali ya Hewa Mwanza - saa 24 zijazo")
 
-  for item in data['list'][:12]: # saa 8 = Masaa 24
+  for item in data['list'][8]: # saa 8 = Masaa 24
     dt_obj = datetime.fromtimestamp(item['dt'])
     time_str = dt_obj.strftime("%Y-%m-%d %H:%M")
     temp = item['main']['temp']
